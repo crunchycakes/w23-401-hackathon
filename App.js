@@ -5,6 +5,7 @@ import {
   ViroText,
   ViroConstants,
   ViroARSceneNavigator,
+  ViroTrackingStateConstants,
 } from '@viro-community/react-viro';
 
 const HelloWorldSceneAR = () => {
@@ -12,10 +13,10 @@ const HelloWorldSceneAR = () => {
 
   function onInitialized(state, reason) {
     console.log('guncelleme', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
+    if (state === ViroTrackingStateConstants.TRACKING_NORMAL) {
       setText('Hello World!');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
+    } else if (state === ViroTrackingStateConstants.TRACKING_UNAVAILABLE) {
+      setText('Searching...')
     }
   }
 
